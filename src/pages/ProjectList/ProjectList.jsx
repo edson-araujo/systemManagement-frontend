@@ -8,20 +8,22 @@ import { ScrollArea } from "../../components/ui/scroll-area";
 import { Input } from "../../components/ui/input";
 import ProjectCard from "../Project/ProjectCard";
 
+export const tags = [
+  "all",
+  "react",
+  "nextjs",
+  "spring boot",
+  "mysql",
+  "mongodb",
+  "angular",
+  "python",
+  "flask",
+  "django",
+];
+
 function ProjectList() {
   const [keyword, setKeyword] = useState("");
-  const tags = [
-    "all",
-    "react",
-    "nextjs",
-    "spring boot",
-    "mysql",
-    "mongodb",
-    "angular",
-    "python",
-    "flask",
-    "django",
-  ];
+ 
   const handleFilterChange = (section, value) => {
     console.log("value", value, section);
   };

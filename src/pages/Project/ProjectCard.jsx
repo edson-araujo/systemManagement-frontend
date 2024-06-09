@@ -10,8 +10,10 @@ import {
 import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
 import { Button } from "../../components/ui/button";
 import { Badge } from "../../components/ui/badge";
+import { useNavigate } from "react-router-dom";
 
 function ProjectCard() {
+  const navigate = useNavigate();
   return (
     <Card className="p-5 w-full lg:max-w-3x1 bg-slate-300/10">
       <div className="space-y-5">
@@ -19,7 +21,7 @@ function ProjectCard() {
           <div className="flex justify-between">
             <div className="flex items-center">
               
-              <h1 className="cursor-pointer font-bold text-lg ">
+              <h1 onClick={(()=>navigate("/project/3"))} className="cursor-pointer font-bold text-lg ">
                 Create Ecommerce Project
               </h1>
             </div>

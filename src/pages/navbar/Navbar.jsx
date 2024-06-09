@@ -16,7 +16,7 @@ function Navbar() {
                 </DialogTrigger>
 
                 <DialogContent>
-                    <DialogHeader>Create new Project</DialogHeader>
+                    <DialogHeader>Criar novo Projeto</DialogHeader>
                     <CreateProjectForm/>
                 </DialogContent>
             </Dialog>
