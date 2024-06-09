@@ -4,12 +4,14 @@ import { Dialog, DialogContent, DialogHeader, DialogTrigger } from '../../compon
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '../../components/ui/dropdown-menu'
 import CreateProjectForm from './CreateProjectForm'
 import { DropdownMenuItem } from '@radix-ui/react-dropdown-menu'
+import { useNavigate } from 'react-router-dom'
 
 function Navbar() {
+    const navigate = useNavigate()
   return (
     <div className='border-b py-4 px-5 flex items-center justify-between'>
         <div className='flex items-center gap-3'>
-            <p className='cursor-pointer'>Proejct Management</p>
+            <p onClick={() => navigate('/')} className='cursor-pointer'>Proejct Management</p>
             <Dialog>
                 <DialogTrigger>
                     <Button variant='ghost'>New Project</Button>
