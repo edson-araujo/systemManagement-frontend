@@ -94,8 +94,6 @@ function CreateProjectForm() {
                     onValueChange={(value) => {
                       field.onChange(value);
                     }}
-
-                    //className="border w-full border-gray-700 py-5 px-5"
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="Categoria" />
@@ -122,8 +120,6 @@ function CreateProjectForm() {
                     onValueChange={(value) => {
                       handleTagsChange(value);
                     }}
-
-                    //className="border w-full border-gray-700 py-5 px-5"
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="Tags" />
@@ -144,7 +140,7 @@ function CreateProjectForm() {
                     <div
                       key={item}
                       onClick={() => handleTagsChange(item)}
-                      className="bg-primary/10 cursor-pointer flex rounded-full items-center border gap-2 px-4 py-1"
+                      className="bg-primary/10 cursor-pointer flex rounded-md items-center border gap-2 px-4 py-1"
                     >
                       <span className="text-sm text-primary">{item}</span>
                       <Cross1Icon className="h-3 w-3 text-primary" />
@@ -161,7 +157,7 @@ function CreateProjectForm() {
                 <p>Você pode criar somente 3 projetos no Plano Gratuito</p>
               </div>
             ) : (
-              <Button type="submit" className="w-full my-5">
+              <Button type="submit" className="w-full">
                 Criar
               </Button>
             )}

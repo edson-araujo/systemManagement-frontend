@@ -42,9 +42,9 @@ function IssueCard() {
                     <DropdownMenuTrigger>
                         <Button 
                         size="icon"
-                        className='text-primary hover:text-muted rounded-full '>
+                        className='text-gray-400 hover:text-primary rounded-full '>
                             <Avatar>
-                                <AvatarFallback className='hover:bg-primary'>
+                                <AvatarFallback>
                                     <PersonIcon/>
                                 </AvatarFallback>
                             </Avatar>

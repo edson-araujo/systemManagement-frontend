@@ -1,6 +1,4 @@
 import { useForm } from "react-hook-form";
-import { Button } from "../../components/ui/button";
-import { DialogClose } from "../../components/ui/dialog";
 import {
   Form,
   FormControl,
@@ -9,20 +7,22 @@ import {
   FormMessage,
 } from "../../components/ui/form";
 import { Input } from "../../components/ui/input";
+import { Button } from "../../components/ui/button";
 
-function InvitedUserForm() {
+function Login() {
   const form = useForm({
     defaultValues: {
       email: "",
+      password: "",
     },
   });
 
   const onSubmit = (data) => {
     console.log("create project data", data);
   };
-
   return (
-    <div>
+    <div className="space-y-5">
+      <div>Registrar</div>
       <Form {...form}>
         <form className="space-y-5" onSubmit={form.handleSubmit(onSubmit)}>
           <FormField
@@ -35,7 +35,7 @@ function InvitedUserForm() {
                     {...field}
                     type="text"
                     className="border w-full border-gray-700 py-5 px-5"
-                    placeholder="E-mail do usuário..."
+                    placeholder="E-mail"
                   />
                 </FormControl>
                 <FormMessage />
@@ -43,15 +43,31 @@ function InvitedUserForm() {
             )}
           />
 
-          <DialogClose>
-            <Button type="submit" className="w-full mt-5">
-              Convidar
-            </Button>
-          </DialogClose>
+          <FormField
+            control={form.control}
+            name="password"
+            render={({ field }) => (
+              <FormItem>
+                <FormControl>
+                  <Input
+                    {...field}
+                    type="text"
+                    className="border w-full border-gray-700 py-5 px-5"
+                    placeholder="Senha"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <Button type="submit" className="w-full mt-5">
+            Registrar
+          </Button>
         </form>
       </Form>
     </div>
   );
 }
 
-export default InvitedUserForm;
+export default Login;

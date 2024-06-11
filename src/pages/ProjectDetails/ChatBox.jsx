@@ -24,7 +24,7 @@ function ChatBox() {
           {[1, 1, 1, 1].map((item, index) =>
             index % 2 == 0 ? (
               <div key={item} className="flex gap-2 mb-2 justify-start">
-                <Avatar>
+                <Avatar className="cursor-pointer text-primary">
                   <AvatarFallback>EA</AvatarFallback>
                 </Avatar>
                 <div className="space-y-2 py-2 px-5 border rounded-ss-2xl rounded-e-xl">
@@ -39,7 +39,7 @@ function ChatBox() {
                   <p>Como você está?</p>
                 </div>
 
-                <Avatar>
+                <Avatar className="cursor-pointer text-primary">
                   <AvatarFallback>EA</AvatarFallback>
                 </Avatar>
               </div>

@@ -36,7 +36,7 @@ function ProjectDetails() {
               <p className="w-36">Membros:</p>
               <div className="flex items-center gap-2">
                 {[1, 1, 1, 1].map((item) => (
-                  <Avatar className="cursor-pointer" key={item} className='text-primary'>
+                  <Avatar className="cursor-pointer text-primary" key={item}>
                     <AvatarFallback>EA</AvatarFallback>
                   </Avatar>
                 ))}
@@ -70,9 +70,10 @@ function ProjectDetails() {
               <p>Fullstack</p>
             </div>
 
-            <div className="flex">
-              <p className="w-36">Categoria:</p>
-              <Badge>Edson</Badge>
+            <div className="flex gap-2">
+              <p className="w-36">Tags:</p>
+              <Badge className={"bg-primary/10 text-primary cursor-pointer hover:text-white font-normal "}>javascript</Badge>
+              <Badge className={"bg-primary/10 text-primary cursor-pointer hover:text-white font-normal "}>sql</Badge>
             </div>
 
             <section>
