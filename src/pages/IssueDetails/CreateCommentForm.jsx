@@ -40,7 +40,7 @@ const CreateCommentForm = ({ issueId }) => {
                     <Input
                       {...field}
                       type="text"
-                      className="w-[20rem]"
+                      className="w-[20rem] bg-white"
                       placeholder="Adicione comentário aqui"
                     />
                   </FormControl>

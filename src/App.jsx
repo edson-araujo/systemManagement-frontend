@@ -10,7 +10,7 @@ import Auth from "./pages/Auth/Auth";
 function App() {
   return (
     <>
-      {false ? <div>
+      {true ? <div>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
