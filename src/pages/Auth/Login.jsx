@@ -8,8 +8,12 @@ import {
 } from "../../components/ui/form";
 import { Input } from "../../components/ui/input";
 import { Button } from "../../components/ui/button";
+import { useDispatch } from "react-redux";
+import { login } from "../../Redux/Auth/Action";
 
 function Login() {
+  const dispatch = useDispatch();
+
   const form = useForm({
     defaultValues: {
       email: "",
@@ -18,7 +22,8 @@ function Login() {
   });
 
   const onSubmit = (data) => {
-    console.log("create project data", data);
+    dispatch(login(data));
+    console.log("login project data", data);
   };
   return (
     <div className="space-y-5">
@@ -62,7 +67,7 @@ function Login() {
           />
 
           <Button type="submit" className="w-full mt-5">
-            Registrar
+            Login
           </Button>
         </form>
       </Form>

@@ -18,10 +18,13 @@ import {
 } from "../../components/ui/select";
 import { tags } from "../ProjectList/ProjectList";
 import { Cross1Icon } from "@radix-ui/react-icons";
+import { useDispatch } from "react-redux";
+import { createProject } from "../../Redux/Project/Action";
 
 function CreateProjectForm() {
+
+  const dispatch = useDispatch();
   const form = useForm({
-    //resolver:
     defaultValues: {
       name: "",
       description: "",
@@ -31,6 +34,7 @@ function CreateProjectForm() {
   });
 
   const onSubmit = (data) => {
+    dispatch(createProject(data));
     console.log("create project data", data);
   };
 

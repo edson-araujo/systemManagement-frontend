@@ -8,8 +8,12 @@ import {
 } from "../../components/ui/form";
 import { Input } from "../../components/ui/input";
 import { Button } from "../../components/ui/button";
+import { useDispatch } from "react-redux";
+import { register } from "../../Redux/Auth/Action";
 
 function Signup() {
+
+  const dispatch = useDispatch();
   const form = useForm({
     defaultValues: {
       email: "",
@@ -19,6 +23,7 @@ function Signup() {
   });
 
   const onSubmit = (data) => {
+    dispatch(register(data));
     console.log("create project data", data);
   };
   return (
@@ -28,7 +33,7 @@ function Signup() {
         <form className="space-y-5" onSubmit={form.handleSubmit(onSubmit)}>
           <FormField
             control={form.control}
-            name="fullname"
+            name="fullName"
             render={({ field }) => (
               <FormItem>
                 <FormControl>

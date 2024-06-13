@@ -5,9 +5,16 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '../../co
 import CreateProjectForm from './CreateProjectForm'
 import { DropdownMenuItem } from '@radix-ui/react-dropdown-menu'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from '../../Redux/Auth/Action'
 
 function Navbar() {
-    const navigate = useNavigate()
+    const {auth} = useSelector(store=>store);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const handleLogout =  () => {
+        dispatch(logout());
+    }
   return (
     <div className='border-b py-4 px-5 flex items-center justify-between'>
         <div className='flex items-center gap-3'>
@@ -35,11 +42,11 @@ function Navbar() {
                 </DropdownMenuTrigger>
 
                 <DropdownMenuContent>
-                    <DropdownMenuItem>Logout</DropdownMenuItem>
+                    <DropdownMenuItem className='cursor-pointer' onClick={handleLogout}>Logout</DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>
 
-            <p>Edson Araújo</p>
+            <p>{auth.user?.fullName}</p>
         </div>
     </div>
   )
