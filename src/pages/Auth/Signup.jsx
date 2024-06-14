@@ -18,6 +18,7 @@ function Signup() {
     defaultValues: {
       email: "",
       password: "",
+      name: "",
       fullName: "",
     },
   });
@@ -33,6 +34,23 @@ function Signup() {
         <form className="space-y-5" onSubmit={form.handleSubmit(onSubmit)}>
           <FormField
             control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormControl>
+                  <Input
+                    {...field}
+                    type="text"
+                    className="border w-full border-gray-700 py-5 px-5"
+                    placeholder="Nome"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
             name="fullName"
             render={({ field }) => (
               <FormItem>
@@ -41,7 +59,7 @@ function Signup() {
                     {...field}
                     type="text"
                     className="border w-full border-gray-700 py-5 px-5"
-                    placeholder="Nome completo"
+                    placeholder="Sobrenome"
                   />
                 </FormControl>
                 <FormMessage />

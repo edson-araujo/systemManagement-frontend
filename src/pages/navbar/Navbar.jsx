@@ -46,7 +46,7 @@ function Navbar() {
                 </DropdownMenuContent>
             </DropdownMenu>
 
-            <p>{auth.user?.fullName}</p>
+            <p>{auth.user?.name + " " + auth.user?.fullName}</p>
         </div>
     </div>
   )

@@ -17,28 +17,38 @@ import {
 } from "../../components/ui/select.jsx";
 import { Avatar, AvatarFallback } from "../../components/ui/avatar.jsx";
 import { Badge } from "../../components/ui/badge.jsx";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchIssueById, updateIssueStatus } from "../../Redux/Issue/Action.js";
+import { fetchComments } from "../../Redux/Comment/Action.js";
 
 function IssueDetails() {
   const { projectId, issueId } = useParams();
-
+  const dispatch = useDispatch();
+  const { issue, comment } = useSelector((store) => store);
   const handleUpdateIsssueStatus = (status) => {
-    console.log("status", status);
+    dispatch(updateIssueStatus({ id: issueId, status: status }));
+    console.log(status);
   };
+
+  useEffect(() => {
+    dispatch(fetchIssueById(issueId));
+    dispatch(fetchComments(issueId));
+  }, [dispatch, issueId]);
 
   return (
     <div className="px-20 py-8 text-gay-400">
       <div className="flex justify-around">
         <ScrollArea className="h-[80vh] w-[60%] border p-10 rounded-sm bg-primary-foreground">
           <div>
-            <h1 className="text-lg font-semibold text-primary">Criar Navbar</h1>
+            <h1 className="text-lg font-semibold text-primary">
+              {issue.issueDetails?.title}
+            </h1>
 
             <div className="py-5">
               <h2 className="font-semibold text-gray-400">Descrição</h2>
               <p className="text-gray-400 text-sm mt-">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-                ut, eos cupiditate, quisquam expedita modi earum culpa, libero
-                accusantium magnam ipsam nobis aspernatur beatae eveniet
-                ratione! Obcaecati esse dolore labore.
+                {issue.issueDetails?.description}
               </p>
             </div>
 
@@ -74,9 +84,9 @@ function IssueDetails() {
               <SelectValue placeholder="A fazer" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="pendding">A fazer</SelectItem>
-              <SelectItem value="in_progress">Em progresso</SelectItem>
-              <SelectItem value="done">Feito</SelectItem>
+              <SelectItem value="A fazer">A fazer</SelectItem>
+              <SelectItem value="Em progresso">Em progresso</SelectItem>
+              <SelectItem value="Feito">Feito</SelectItem>
             </SelectContent>
           </Select>
           <div className="border rounded-sm bg-primary-foreground">
@@ -85,12 +95,13 @@ function IssueDetails() {
               <div className="space-y-7">
                 <div className="flex gap-10 items-center">
                   <p className="w-[7rem]">Adsministrador</p>
-                  <div className="flex items-center gap-3">
+                  {issue.issueDetails?.assignee? <div className="flex items-center gap-3">
                     <Avatar className="cursor-pointer text-primary h-8 w-8 text-xs">
                       <AvatarFallback>EA</AvatarFallback>
                     </Avatar>
-                    <p>Edson Araújo</p>
-                  </div>
+                    <p>Eson Araúdjo</p>
+                  </div>: <p>nenhum</p>}
+                  
                 </div>
 
                 <div className="flex gap-10 items-center">
@@ -100,7 +111,7 @@ function IssueDetails() {
 
                 <div className="flex gap-10 items-center">
                   <p className="w-[7rem]">Status</p>
-                  <Badge>Em progresso</Badge>
+                  <Badge>{issue.issueDetails?.status}</Badge>
                 </div>
 
                 <div className="flex gap-10 items-center">

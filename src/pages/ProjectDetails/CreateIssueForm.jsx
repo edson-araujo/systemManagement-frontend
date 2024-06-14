@@ -9,8 +9,13 @@ import {
 import { Input } from "../../components/ui/input";
 import { DialogClose } from "../../components/ui/dialog";
 import { Button } from "../../components/ui/button";
+import { useDispatch } from "react-redux";
+import { createIssue } from "../../Redux/Issue/Action";
+import { useParams } from "react-router-dom";
 
-function CreateIssueForm() {
+function CreateIssueForm({status}) {
+  const { id } = useParams();
+  const dispatch = useDispatch();
   const form = useForm({
     defaultValues: {
       issueName: "",
@@ -19,7 +24,16 @@ function CreateIssueForm() {
   });
 
   const onSubmit = (data) => {
-    console.log("create project data", data);
+    data.projecetId = id;
+    dispatch(
+      createIssue({
+        title: data.issueName,
+        description: data.description,
+        projectId: id,
+        status
+      })
+    );
+    console.log("create issue data", data);
   };
   return (
     <div>

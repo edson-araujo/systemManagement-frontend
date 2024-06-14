@@ -31,30 +31,31 @@ function ProjectDetails() {
     <div className="ml-5 lg:px-10">
       <div className="lg:flex gap-5 justify-between pb-4">
         <ScrollArea className="h-screen lg:w-[69%] pr-2">
-          <div className="text-gray-400 pb-10 w-full">
-            <h1 className="text-large font-semibold pb-5">
-              {project.projectDetails?.name}
-            </h1>
-          </div>
+          <div className="text-gray-400 pb-10 w-full"></div>
 
           <div className="space-y-5 pb-10">
+            <h1 className="text-gray-400 w-full text-xl font-semibold pb-2">
+              {" "}
+              {project.projectDetails?.name}
+            </h1>
             <p className="w-full md:max-w-lg lg:max-w-xl text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-              aliquid expedita atque sit libero totam voluptatem impedit qui vel
-              necessitatibus magni veritatis illo sint eveniet aliquam, deleniti
-              vitae et enim?
+              {project.projectDetails?.description}
             </p>
 
             <div className="flex">
               <p className="w-36">Project Lead:</p>
-              <p className="flex items-center gap-2">Edson Araújo</p>
+              <p className="flex items-center gap-2">
+                {project.projectDetails?.owner.fullName}
+              </p>
             </div>
             <div className="flex">
               <p className="w-36">Membros:</p>
               <div className="flex items-center gap-2">
-                {[1, 1, 1, 1].map((item) => (
+                {project.projectDetails?.team.map((item) => (
                   <Avatar className="cursor-pointer text-primary" key={item}>
-                    <AvatarFallback>EA</AvatarFallback>
+                    <AvatarFallback>
+                      {item.name[0] + item.fullName[0].toUpperCase()}
+                    </AvatarFallback>
                   </Avatar>
                 ))}
               </div>
@@ -82,25 +83,21 @@ function ProjectDetails() {
 
             <div className="flex">
               <p className="w-36">Categoria:</p>
-              <p>Fullstack</p>
+              <p> {project.projectDetails?.category}</p>
             </div>
 
             <div className="flex gap-2">
               <p className="w-36">Tags:</p>
-              <Badge
-                className={
-                  "bg-primary/10 text-primary cursor-pointer hover:text-white font-normal "
-                }
-              >
-                javascript
-              </Badge>
-              <Badge
-                className={
-                  "bg-primary/10 text-primary cursor-pointer hover:text-white font-normal "
-                }
-              >
-                sql
-              </Badge>
+              {project.projectDetails?.tags.map((tag) => (
+                <Badge
+                  key={tag}
+                  className={
+                    "bg-primary/10 text-primary cursor-pointer hover:text-white font-normal "
+                  }
+                >
+                  {tag}
+                </Badge>
+              ))}
             </div>
 
             <section>

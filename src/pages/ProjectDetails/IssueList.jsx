@@ -10,8 +10,18 @@ import {
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "../../components/ui/dialog";
 import IssueCard from "./IssueCard";
 import CreateIssueForm from "./CreateIssueForm";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchIssues } from "../../Redux/Issue/Action";
+import { useParams } from "react-router-dom";
 
 function IssueList({ title, status }) {
+  const dispatch=useDispatch();
+  const{issue}=useSelector(store=>store);
+  const {id}=useParams();
+  useEffect(()=>{
+      dispatch(fetchIssues(id))
+  },[id])
   return (
     <div>
       <Dialog>
@@ -21,7 +31,7 @@ function IssueList({ title, status }) {
           </CardHeader>
           <CardContent className="px-2">
             <div className="space-y-2">
-              {[1,1,1].map((item) => <IssueCard key={item}/>)  }
+            {issue.issues.filter((issue) => issue.status==status).map((item)=><IssueCard item={item} projectId={id} key={item.id}/>)}
             </div>
           </CardContent>
           <CardFooter>
@@ -41,7 +51,7 @@ function IssueList({ title, status }) {
             <DialogHeader>
                 <DialogTitle>Criar nova pendência</DialogTitle>
             </DialogHeader>
-            <CreateIssueForm/>
+            <CreateIssueForm status={status}/>
         </DialogContent>
       </Dialog>
     </div>

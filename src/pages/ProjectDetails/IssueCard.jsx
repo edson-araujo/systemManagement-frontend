@@ -10,15 +10,22 @@ import {
 import { Avatar, AvatarFallback } from "../../components/ui/avatar";
 import UserList from "./UserList";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { deleteIssue } from "../../Redux/Issue/Action";
 
-function IssueCard() {
-  const navigate = useNavigate();
+function IssueCard({item, projectId}) {
+  const navigate=useNavigate();
+  const dispatch=useDispatch();
+
+  const handleIssueDelete=()=>{
+    dispatch(deleteIssue(item.id));
+}
   return (
     <div>
       <Card className="rounded-md py-1 pb-2 shadow">
         <CardHeader className="py-0 pb-1">
           <div className="flex justify-between items-center">
-            <CardTitle className='cursor-pointer' onClick={() => navigate('/project/3/issue/10')}>Criar Navbar</CardTitle>
+            <CardTitle className='cursor-pointer' onClick={() => navigate(`/project/${projectId}/issue/${item.id}`)}>{item.title}</CardTitle>
             <DropdownMenu>
               <DropdownMenuTrigger>
                 <Button size="icon" variant="ghost">
@@ -27,10 +34,10 @@ function IssueCard() {
               </DropdownMenuTrigger>
 
               <DropdownMenuContent>
-                <DropdownMenuItem>Em progresso</DropdownMenuItem>
-                <DropdownMenuItem>Feito</DropdownMenuItem>
-                <DropdownMenuItem>Editar</DropdownMenuItem>
-                <DropdownMenuItem>Deletar</DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer">Em progresso</DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer">Feito</DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer">Editar</DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer" onClick={handleIssueDelete}>Deletar</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
