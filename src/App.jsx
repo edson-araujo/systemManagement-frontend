@@ -4,7 +4,6 @@ import Home from "./pages/Home/Home";
 import Navbar from "./pages/navbar/Navbar";
 import ProjectDetails from "./pages/ProjectDetails/ProjectDetails";
 import IssueDetails from "./pages/IssueDetails/IssueDetails";
-import Subscription from "./pages/Subscription/Subscription";
 import Auth from "./pages/Auth/Auth";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -32,7 +31,6 @@ function App() {
             path="/project/:projectId/issue/:issueId"
             element={<IssueDetails />}
           />
-          <Route path="/upgrade_plan" element={<Subscription />} />
         </Routes>
       </div>: <Auth/>}
     </>

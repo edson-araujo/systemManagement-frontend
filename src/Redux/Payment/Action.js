@@ -1,11 +1,12 @@
-import api from "@/config/api"
+import api from "../../config/api";
 
-export const createPayment=async({planeType,jwt})=>{
+export const createPayment=async({planType,jwt})=>{
 
     try{
-
-        const {data}=await api.post(`/api/payment/${planeType}`);
-        window.location.href=data.payment_link_url;
+        const {data} = await api.post(`/api/payment/${planType}`);
+        if(data.payment_link_url){
+            window.location.href = data.payment_link_url;
+        }
 
     }
     catch(error){

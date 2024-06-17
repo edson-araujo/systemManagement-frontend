@@ -29,8 +29,6 @@ function Navbar() {
                     <CreateProjectForm/>
                 </DialogContent>
             </Dialog>
-
-            <Button onClick={() => navigate("/upgrade_plan")} variant='ghost'>Upgrade</Button>
         </div>
 
         <div className='flex gap-3 items-center'>

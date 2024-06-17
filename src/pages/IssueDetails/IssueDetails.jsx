@@ -65,8 +65,8 @@ function IssueDetails() {
                 <TabsContent value="comments">
                   <CreateCommentForm issueId={issueId} />
                   <div className="mt-8 space-y-6">
-                    {[1, 1, 1].map((item) => (
-                      <CommentCard key={item} />
+                    {comment.comments.map((item) => (
+                      <CommentCard item={item} key={item} />
                     ))}
                   </div>
                 </TabsContent>
@@ -95,11 +95,11 @@ function IssueDetails() {
               <div className="space-y-7">
                 <div className="flex gap-10 items-center">
                   <p className="w-[7rem]">Adsministrador</p>
-                  {issue.issueDetails?.assignee? <div className="flex items-center gap-3">
+                  {issue.issueDetails?.assignee?.name?<div className="flex items-center gap-3">
                     <Avatar className="cursor-pointer text-primary h-8 w-8 text-xs">
-                      <AvatarFallback>EA</AvatarFallback>
+                      <AvatarFallback>{issue.issueDetails?.assignee?.name[0] + issue.issueDetails?.assignee?.fullName[0]}</AvatarFallback>
                     </Avatar>
-                    <p>Eson Araúdjo</p>
+                    <p>{issue.issueDetails?.assignee?.name + " " + issue.issueDetails?.assignee?.fullName}</p>
                   </div>: <p>nenhum</p>}
                   
                 </div>
