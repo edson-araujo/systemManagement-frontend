@@ -9,30 +9,36 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getUser } from "./Redux/Auth/Action";
 import { fetchProjects } from "./Redux/Project/Action";
+import AcceptInvitaion from "./pages/Project/AcceptInvitation";
 
 function App() {
   const dispatch = useDispatch();
-  const {auth} = useSelector(store=>store);
+  const { auth } = useSelector((store) => store);
 
   useEffect(() => {
-    dispatch(getUser())
-    dispatch(fetchProjects({}))
-  }, [dispatch])
+    dispatch(getUser());
+    dispatch(fetchProjects({}));
+  }, [dispatch]);
 
-  console.log(auth)
+  console.log(auth);
   return (
     <>
-      {auth.user? <div>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/project/:id" element={<ProjectDetails />} />
-          <Route
-            path="/project/:projectId/issue/:issueId"
-            element={<IssueDetails />}
-          />
-        </Routes>
-      </div>: <Auth/>}
+      {auth.user ? (
+        <div>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/project/:id" element={<ProjectDetails />} />
+            <Route
+              path="/project/:projectId/issue/:issueId"
+              element={<IssueDetails />}
+            />
+            <Route path="/accept_invitaion" element={<AcceptInvitaion />} />
+          </Routes>
+        </div>
+      ) : (
+        <Auth />
+      )}
     </>
   );
 }
