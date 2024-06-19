@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # Ignore application.properties
-application.properties
+src/config/api.js

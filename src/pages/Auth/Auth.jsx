@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Signup from "./Signup";
 import Login from "./Login";
-import { Button } from "../../components/ui/button";
 import "./Auth.css";
 
 function Auth() {
@@ -15,10 +14,13 @@ function Auth() {
             {active ? <Signup /> : <Login />}
 
             <div>
-              <span>Não tem conta?</span>
-              <Button variant="ghost" onClick={() => setActive(!active)}>
-                {active ? "Signin" : "Signup"}
-              </Button>
+              <span> {active ? "Tem conta?" : "Não tem conta?"}</span>
+              <span
+                onClick={() => setActive(!active)}
+                className=" ml-2 cursor-pointer text-muted-foreground font-semibold"
+              >
+                {active ? "Entrar" : "Criar"}
+              </span>
             </div>
           </div>
         </div>
