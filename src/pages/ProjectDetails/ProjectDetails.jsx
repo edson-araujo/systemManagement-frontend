@@ -20,7 +20,7 @@ import { fetchProjectById } from "../../Redux/Project/Action";
 
 function ProjectDetails() {
   const dispatch = useDispatch();
-  const { project } = useSelector((store) => store);
+  const { project } = useSelector(store => store);
   const { id } = useParams();
   const handleProjectInvitation = () => {};
 
@@ -45,14 +45,14 @@ function ProjectDetails() {
             <div className="flex">
               <p className="w-36">Project Lead:</p>
               <p className="flex items-center gap-2">
-                {project.projectDetails?.owner.fullName}
+                {project.projectDetails?.owner.name + " " + project.projectDetails?.owner.fullName}
               </p>
             </div>
             <div className="flex">
               <p className="w-36">Membros:</p>
               <div className="flex items-center gap-2">
                 {project.projectDetails?.team.map((item) => (
-                  <Avatar className="cursor-pointer text-primary" key={item}>
+                  <Avatar className="cursor-pointer text-primary" key={item.id}>
                     <AvatarFallback>
                       {item.name[0] + item.fullName[0].toUpperCase()}
                     </AvatarFallback>
@@ -92,7 +92,7 @@ function ProjectDetails() {
                 <Badge
                   key={tag}
                   className={
-                    "bg-primary/10 text-primary cursor-pointer hover:text-white font-normal "
+                    "bg-primary/10 text-primary cursor-pointer hover:text-white font-semibold"
                   }
                 >
                   {tag}
@@ -103,9 +103,9 @@ function ProjectDetails() {
             <section>
               <p className="py-5 border-b text-lg tracking-wider">Task</p>
               <div className="lg:flex md:flex gap-3 justify-between py-5">
-                <IssueList status="pedding" title="A fazer" />
-                <IssueList status="in_progress" title="Em progresso" />
-                <IssueList status="done" title="Feito" />
+                <IssueList status="A fazer" title="A fazer" />
+                <IssueList status="Em progresso" title="Em progresso" />
+                <IssueList status="Feito" title="Feito" />
               </div>
             </section>
           </div>

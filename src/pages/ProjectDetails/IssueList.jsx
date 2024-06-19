@@ -21,7 +21,7 @@ function IssueList({ title, status }) {
   const {id}=useParams();
   useEffect(()=>{
       dispatch(fetchIssues(id))
-  },[id])
+  },[dispatch, id])
   return (
     <div>
       <Dialog>
@@ -49,7 +49,7 @@ function IssueList({ title, status }) {
 
         <DialogContent>
             <DialogHeader>
-                <DialogTitle>Criar nova pendência</DialogTitle>
+                <DialogTitle className="text-primary">Criar nova pendência</DialogTitle>
             </DialogHeader>
             <CreateIssueForm status={status}/>
         </DialogContent>

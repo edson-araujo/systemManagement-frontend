@@ -13,14 +13,12 @@ import AcceptInvitaion from "./pages/Project/AcceptInvitation";
 
 function App() {
   const dispatch = useDispatch();
-  const { auth } = useSelector((store) => store);
+  const { auth } = useSelector(store => store);
 
   useEffect(() => {
     dispatch(getUser());
     dispatch(fetchProjects({}));
   }, [dispatch]);
-
-  console.log(auth);
   return (
     <>
       {auth.user ? (

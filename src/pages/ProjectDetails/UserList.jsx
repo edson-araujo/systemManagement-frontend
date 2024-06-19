@@ -6,13 +6,13 @@ function UserList({issueDetails}) {
     const {project} = useSelector(store => store);
     const dispatch = useDispatch();
     const handleAssignIssueToUser = (userId) => {
-        dispatch(assignedUserToIssue({issueId: issueDetails.id, userId}));
+        dispatch(assignedUserToIssue({issueId: issueDetails.id, userId: userId}));
     }
   return (
     <div>
         <div className='space-y-2'>
             <div className='border rounded-sm'>
-                <p className="py-2 px-4  ">{issueDetails.assignee.name + " " + issueDetails.assignee.fullName || "Unassigne"}</p>
+                <p className="py-2 px-4  ">{issueDetails.assignee?.name + " " + issueDetails.assignee?.fullName || "Unassigne"}</p>
             </div>
 
             {project.projectDetails?.team.map((item) => <div 
@@ -20,7 +20,7 @@ function UserList({issueDetails}) {
             key={item} className="py-2 group hover:bg-primary/10 cursor-pointer flex items-center space-x-4 rounded-sm px-4">
                 <Avatar>
                     <AvatarFallback className='text-primary'>
-                        {item.fullName[0]}
+                        {item.name[0] + item.fullName[0]}
                     </AvatarFallback>
                 </Avatar>
 

@@ -42,9 +42,9 @@ function ProjectCard({ item }) {
                 </DropdownMenuTrigger>
 
                 <DropdownMenuContent>
-                  <DropdownMenuItem>Update</DropdownMenuItem>
-                  <DropdownMenuItem onClick={handleDelete}>
-                    Delete
+                  <DropdownMenuItem className="cursor-pointer">Editar</DropdownMenuItem>
+                  <DropdownMenuItem className="cursor-pointer" onClick={handleDelete}>
+                    Deletar
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>

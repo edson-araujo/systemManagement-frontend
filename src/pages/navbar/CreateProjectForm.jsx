@@ -35,7 +35,6 @@ function CreateProjectForm() {
 
   const onSubmit = (data) => {
     dispatch(createProject(data));
-    console.log("create project data", data);
   };
 
   const handleTagsChange = (newValue) => {

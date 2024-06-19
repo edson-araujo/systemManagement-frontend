@@ -25,10 +25,9 @@ import { fetchComments } from "../../Redux/Comment/Action.js";
 function IssueDetails() {
   const { projectId, issueId } = useParams();
   const dispatch = useDispatch();
-  const { issue, comment } = useSelector((store) => store);
+  const { issue, comment } = useSelector(store => store);
   const handleUpdateIsssueStatus = (status) => {
     dispatch(updateIssueStatus({ id: issueId, status: status }));
-    console.log(status);
   };
 
   useEffect(() => {
@@ -79,7 +78,7 @@ function IssueDetails() {
         </ScrollArea>
 
         <div className="w-full lg:w-[30%] space-y-2 ">
-          <Select onValueChange={handleUpdateIsssueStatus}>
+          <Select defaultValue={issue.issueDetails?.status} onValueChange={handleUpdateIsssueStatus}>
             <SelectTrigger className="w-[180px]">
               <SelectValue placeholder="A fazer" />
             </SelectTrigger>

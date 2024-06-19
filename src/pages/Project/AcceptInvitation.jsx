@@ -14,8 +14,8 @@ const AcceptInvitaion=()=>{
     }
     return(
         <div className="h-[85vh] flex flex-col justify-center items-center">
-            <h1 className="py-5 font-semibold text-xl">You are invited to join the project</h1>
-            <Button onClick={handleAcceptInvitation}>Accept Invitaion</Button>
+            <h1 className="py-5 font-semibold text-xl">Você está convidado a participar do projeto</h1>
+            <Button onClick={handleAcceptInvitation}>Aceitar convite</Button>
         </div>
     )
 }

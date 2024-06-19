@@ -23,7 +23,6 @@ function Login() {
 
   const onSubmit = (data) => {
     dispatch(login(data));
-    console.log("login project data", data);
   };
   return (
     <div className="space-y-5">

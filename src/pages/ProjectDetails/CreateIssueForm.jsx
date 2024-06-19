@@ -33,7 +33,6 @@ function CreateIssueForm({status}) {
         status
       })
     );
-    console.log("create issue data", data);
   };
   return (
     <div>
