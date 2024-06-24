@@ -54,3 +54,5 @@ Welcome to my portfolio! This system was created to showcase my projects, skills
 
 ### Screenshots
 ![Projects](./Screenshots-1.png)
+![Details](./Screenshots-2.png)
+![Issues](./Screenshots-3.png)
