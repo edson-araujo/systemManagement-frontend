@@ -3,7 +3,6 @@
     justify-content: center;
     align-items: center;
     min-height: 20vh;
-    background: #ffff;
 }
 
 @property --a{
@@ -61,16 +60,14 @@
     align-items: center;
     flex-direction: column;
     border-radius: 10px;
-    background: #ffff;
     z-index: 1000;
-    border-bottom: 2px solid rgb(255,255,255,0.5);
 }  
+
 .loginContainer{
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #ffff;
 }
 @property --a{
     syntax: '<angle>';
@@ -111,9 +108,7 @@
 }
 .box::after{
     content:"";
-    position: absolute;
     inset: 4px;
-    background: #fff;
     border-radius: 15px;
     border: 5px solid #2563eb;
 }
@@ -126,5 +121,4 @@
     flex-direction: column;
     border-radius: 10px;
     z-index: 1000;
-    border-bottom: 2px solid rgb(255,255,255,0.5);
 }  

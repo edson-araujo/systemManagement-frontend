@@ -8,18 +8,18 @@ function Auth() {
 
   return (
     <div className="loginContainer">
-      <div className="box h-[30rem] w-[25rem]">
-        <div className="minContainer login">
-          <div className="loginBox w-full px-5 space-y-5">
-            {active ? <Signup /> : <Login />}
+      <div className="box h-[30rem] w-[25rem] dark:after:bg-slate-900  after:bg-blue-100">
+        <div className="login  dark:bg-slate-900 bg-blue-100">
+          <div className="loginBox w-full px-5 space-y-5  ">
+            {active ? <Login /> : <Signup />}
 
             <div>
-              <span> {active ? "Tem conta?" : "Não tem conta?"}</span>
+              <span className="text-muted-foreground"> {!active ? "Tem conta?" : "Não tem conta?"}</span>
               <span
                 onClick={() => setActive(!active)}
                 className=" ml-2 cursor-pointer text-muted-foreground font-semibold"
               >
-                {active ? "Entrar" : "Criar"}
+                {!active ? "Entrar" : "Criar"}
               </span>
             </div>
           </div>

@@ -56,7 +56,7 @@ function ChatBox() {
 
         {!isMinimized && (
           <div>
-            <ScrollArea className="h-[32rem] w-full p-5 gap-3 flex-col bg-white dark:bg-primary-foreground">
+            <ScrollArea className=" sm:h-[24rem] h-[15rem] w-full p-5 gap-3 flex-col bg-white dark:bg-primary-foreground">
               {chat.messages?.map((item, index) =>
                 item.sender.id !== auth.user.id ? (
                   <div key={index} className="flex gap-2 mb-2 justify-start">
@@ -65,17 +65,17 @@ function ChatBox() {
                     </Avatar>
                     <div className="space-y-2 py-2 px-5 border rounded-ss-2xl rounded-e-xl">
                       <p className="text-xs font-semibold text-muted-foreground">{item.sender.name + " " + item.sender.fullName}</p>
-                      <p>{item.content}</p>
+                      <p className="text-sm">{item.content}</p>
                     </div>
                   </div>
                 ) : (
                   <div key={index} className="flex gap-2 mb-2 justify-end">
                     <div className="space-y-2 py-2 px-5 border rounded-se-2xl rounded-s-xl">
                       <p className="text-xs font-semibold  text-muted-foreground">{item.sender.name + " " + item.sender.fullName}</p>
-                      <p>{item.content}</p>
+                      <p className="text-sm">{item.content}</p>
                     </div>
                     <Avatar className="cursor-pointer text-primary mt-8">
-                      <AvatarFallback>{item.sender.name[0] + item.sender.fullName[0]}</AvatarFallback>
+                      <AvatarFallback className="text-xs">{item.sender.name[0] + item.sender.fullName[0]}</AvatarFallback>
                     </Avatar>
                   </div>
                 )

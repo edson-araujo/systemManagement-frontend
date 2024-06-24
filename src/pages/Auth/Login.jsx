@@ -30,7 +30,6 @@ function Login() {
 
   return (
     <div className="space-y-5">
-      <div>Login</div>
       <Form {...form}>
         <form className="space-y-5" onSubmit={form.handleSubmit(onSubmit)}>
           <FormField

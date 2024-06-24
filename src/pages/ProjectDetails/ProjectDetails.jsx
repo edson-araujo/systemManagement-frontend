@@ -111,7 +111,7 @@ function ProjectDetails() {
           </div>
         </ScrollArea>
 
-        <div className="lg:w-[30%] rounded-md sticky right-5 top-10">
+        <div className="lg:w-[30%] rounded-md right-5 top-10">
           <ChatBox />
         </div>
       </div>
