@@ -56,3 +56,8 @@ Welcome to my portfolio! This system was created to showcase my projects, skills
 ![Projects](./Screenshots-1.png)
 ![Details](./Screenshots-2.png)
 ![Issues](./Screenshots-3.png)
+
+## Contact
+Email: edsonaraujo.dev@gmail.com
+LinkedIn: [LinkedIn profile](https://www.linkedin.com/in/edson-alves-araujo/)
+GitHub: [GitHub profile](https://github.com/edson-araujo)
