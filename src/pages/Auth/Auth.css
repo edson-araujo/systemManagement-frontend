@@ -5,15 +5,8 @@
     min-height: 20vh;
 }
 
-@property --a{
-    syntax: '<angle>';
-    inherits: false;
-    initial-value: 0deg;
-}
 .box{
     position: relative;
-    background: repeating-conic-gradient(from var(--a), #ff2770 0%, #ff2770 5%, transparent 5%, transparent 40%, #ff2770 50%);
-    filter: drop-shadow(0 15px 50px #fff);
     border-radius: 20px;
     animation: rotating 4s linear infinite;
     display: flex;
@@ -21,37 +14,6 @@
     align-items: center;
 }
 
-@keyframes rotating {
-    0%
-    {
-        --a:0deg;
-    }
-    100%
-    {
-        --a: 360deg;
-    }
-    
-}
-
- .box::before{
-    content:"";
-    position: absolue;
-    width: 100%;
-    height: 100%;
-    background: repeating-conic-gradient(from var(--a), #45f3ff 0%, #45f3ff 5%, transparent 5%, transparent 40%, #45f3ff 50%);
-    filter: drop-shadow(0 15px 50px #ffff);
-    border-radius: 20px;
-    animation: rotating 4s linear infinite;
-    animation-delay: -1s;
-}
-
-.box::after{
-    content:"";
-    position: absolute;
-    background: #2d2d39;
-    border-radius: 15px;
-    border: 5px solid #ffff;
-}
 .login{
     position: absolute;
     inset: 20px;
@@ -68,49 +30,6 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-}
-@property --a{
-    syntax: '<angle>';
-    inherits: false;
-    initial-value: 0deg;
-}
-.box{
-    position: relative;
-    background: repeating-conic-gradient(from var(--a), #fff 0%, #fff 5%, transparent 5%, transparent 40%, #fff 50%);
-    filter: drop-shadow(0 15px 50px #2563eb94);
-    border-radius: 20px;
-    animation: rotating 4s linear infinite;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-@keyframes rotating {
-    0%
-    {
-        --a:0deg;
-    }
-    100%
-    {
-        --a: 360deg;
-    }
-    
-}
- .box::before{
-    content:"";
-    position: absolue;
-    width: 100%;
-    height: 100%;
-    background: repeating-conic-gradient(from var(--a), #2563eb94 0%, #2563eb94 5%, transparent 5%, transparent 40%, #2563eb94 50%);
-    filter: drop-shadow(0 15px 50px #2563eb94);
-    border-radius: 20px;
-    animation: rotating 4s linear infinite;
-    animation-delay: -1s;
-}
-.box::after{
-    content:"";
-    inset: 4px;
-    border-radius: 15px;
-    border: 5px solid #2563eb;
 }
 .login{
     position: absolute;

@@ -41,7 +41,7 @@ function Signup() {
                   <Input
                     {...field}
                     type="text"
-                    className="border w-full border-gray-700 py-5 px-5"
+                    className="border w-full dark:border-gray-700 py-5 px-5"
                     placeholder="Nome"
                   />
                 </FormControl>
@@ -58,7 +58,7 @@ function Signup() {
                   <Input
                     {...field}
                     type="text"
-                    className="border w-full border-gray-700 py-5 px-5"
+                    className="border w-full dark:border-gray-700 py-5 px-5"
                     placeholder="Sobrenome"
                   />
                 </FormControl>
@@ -76,7 +76,7 @@ function Signup() {
                   <Input
                     {...field}
                     type="text"
-                    className="border w-full border-gray-700 py-5 px-5"
+                    className="border w-full dark:border-gray-700 py-5 px-5"
                     placeholder="E-mail"
                   />
                 </FormControl>
@@ -95,14 +95,14 @@ function Signup() {
                     <Input
                       {...field}
                       type={showPassword ? "text" : "password"}
-                      className="border w-full border-gray-700 py-5 px-5"
+                      className="border w-full dark:border-gray-700 py-5 px-5"
                       placeholder="Senha"
                     />
                     <div
                       className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
                       onClick={() => setShowPassword(!showPassword)}
                     >
-                      {showPassword ? (
+                      {!showPassword ? (
                         <EyeOffIcon className="h-5 w-5 text-gray-500" />
                       ) : (
                         <EyeIcon className="h-5 w-5 text-gray-500" />

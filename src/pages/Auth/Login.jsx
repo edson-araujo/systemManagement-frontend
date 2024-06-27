@@ -41,7 +41,7 @@ function Login() {
                   <Input
                     {...field}
                     type="text"
-                    className="border w-full border-gray-700 py-5 px-5"
+                    className="border  w-full py-5 px-5 dark:border-gray-700"
                     placeholder="E-mail"
                   />
                 </FormControl>
@@ -60,17 +60,17 @@ function Login() {
                     <Input
                       {...field}
                       type={showPassword ? "text" : "password"}
-                      className="border w-full border-gray-700 py-5 px-5 pr-10"
+                      className="border w-full py-5 px-5 pr-10 dark:border-gray-700"
                       placeholder="Senha"
                     />
                     <div
                       className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
                       onClick={() => setShowPassword(!showPassword)}
                     >
-                      {showPassword ? (
-                        <EyeOffIcon className="h-5 w-5 text-gray-500" />
+                      {!showPassword ? (
+                        <EyeOffIcon className="h-5 w-5 text-gray-500 text-primary" />
                       ) : (
-                        <EyeIcon className="h-5 w-5 text-gray-500" />
+                        <EyeIcon className="h-5 w-5 text-gray-500 text-primary" />
                       )}
                     </div>
                   </div>
